@@ -6,7 +6,7 @@ import {
   CardActions,
   Divider,
 } from "@mui/material";
-import { useGridCardStyles } from "./GridCard.styles";
+import { useGridCardStyles } from "./gridCard.styles";
 
 interface GridCardProps {
   title: string;
