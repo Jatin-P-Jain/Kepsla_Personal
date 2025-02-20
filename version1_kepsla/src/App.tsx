@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import NavigationRoutes from "./components/NavigationRoutes";
 import { Box, ThemeProvider, createTheme } from "@mui/material";
-import AppBarDrawer from "./components/AppBarDrawer";
 import theme from "./theme/theme";
+import 'react-grid-layout/css/styles.css';
+import 'react-resizable/css/styles.css';
+import './index.css'; // Ensure this CSS file includes the override
+import NavigationRoutes from "./routes/NavigationRoutes";
 
 const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -32,9 +34,7 @@ const App: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <Router>
-        <AppBarDrawer>
-          <NavigationRoutes />
-        </AppBarDrawer>
+        <NavigationRoutes />
       </Router>
     </ThemeProvider>
   );
