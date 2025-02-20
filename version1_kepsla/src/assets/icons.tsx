@@ -17,6 +17,8 @@ import WAQRCodeSVG from "../assets/icons/wa-qr-code.svg?react";
 import WAChatScreenSVG from "../assets/icons/wa-chat-screen.svg?react";
 import NotificationDrawerSVG from "../assets/icons/notification-drawer.svg?react";
 import LogoutSVG from "../assets/icons/Logout.svg?react";
+import SortingIconSVG from "../assets/icons/sorting-icon.svg?react";
+import FilterIconSVG from "../assets/icons/filter-icon.svg?react";
 
 type MotionIcon = FC<SVGProps<SVGSVGElement>>;
 
@@ -54,4 +56,8 @@ export const Icons = {
     TranslateIcon: motion.create(TranslateAppBarSVG),
     NotificationIcon: motion.create(NotificationAppBarSVG),
   },
+  Dashboard: {
+    SortingIcon: motion.create(SortingIconSVG),
+    FilterIcon: motion.create(FilterIconSVG)
+  }
 };
