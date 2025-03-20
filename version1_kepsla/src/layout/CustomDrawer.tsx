@@ -16,21 +16,25 @@ import { MenuItem } from "../config/navigationTypes";
 import { menuConfig } from "../config/navigationConfig";
 import { Logos } from "../assets/logo";
 import { useDrawerStyles } from "./drawer.styles";
+import useDrawer from "./useDrawer";
 
 interface DrawerProps {
   isMobile: boolean;
   drawerWidth: string;
+  open: boolean; // New prop for controlling drawer state
   children?: React.ReactNode;
 }
 
 const CustomDrawer: React.FC<DrawerProps> = ({
   isMobile,
   drawerWidth,
+  open,
   children,
 }) => {
   const drawerStyles = useDrawerStyles();
   const { openMenu, activeItem, handleNavigation, handleMenuClick } =
     useDrawerMenu();
+  const { closeDrawer } = useDrawer();
 
   const renderMenuItems = (items: MenuItem[], depth = 0) => {
     return items.map((item, index) => (
@@ -39,6 +43,7 @@ const CustomDrawer: React.FC<DrawerProps> = ({
           onClick={() => {
             item.children && handleMenuClick(item.text);
             depth > 0 && handleNavigation(item.path);
+            isMobile && closeDrawer(); // Close drawer on mobile
           }}
           sx={drawerStyles.listItem(item.text === activeItem, depth)}
         >
@@ -77,6 +82,8 @@ const CustomDrawer: React.FC<DrawerProps> = ({
   return (
     <Drawer
       variant={isMobile ? "temporary" : "permanent"}
+      open={isMobile ? open : true} // Control open state for mobile
+      onClose={isMobile ? closeDrawer : undefined} // Close drawer on mobile
       sx={{
         "& .MuiDrawer-paper": drawerStyles.drawerPaper(drawerWidth),
       }}
