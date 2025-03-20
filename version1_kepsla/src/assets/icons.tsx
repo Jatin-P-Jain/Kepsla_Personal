@@ -16,7 +16,7 @@ import ComparativeAnalysisSVG from "../assets/icons/comparative-analysis.svg?rea
 import WAQRCodeSVG from "../assets/icons/wa-qr-code.svg?react";
 import WAChatScreenSVG from "../assets/icons/wa-chat-screen.svg?react";
 import NotificationDrawerSVG from "../assets/icons/notification-drawer.svg?react";
-import LogoutSVG from "../assets/icons/Logout.svg?react";
+import LogoutSVG from "../assets/icons/logout.svg";
 import SortingIconSVG from "../assets/icons/sorting-icon.svg?react";
 import FilterIconSVG from "../assets/icons/filter-icon.svg?react";
 
