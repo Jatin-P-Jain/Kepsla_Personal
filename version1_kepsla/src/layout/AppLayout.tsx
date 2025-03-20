@@ -7,31 +7,28 @@ import CustomDrawer from "./CustomDrawer";
 import { Outlet } from "react-router-dom";
 
 interface AppLayoutProps {
-    children?: React.ReactNode;
+  children?: React.ReactNode;
 }
 
-const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
-    const { drawerWidth, isMobile } = useDrawer();
+const AppLayout: React.FC<AppLayoutProps> = () => {
+  const { drawerWidth, isMobile } = useDrawer();
 
-    return (
-        <Box sx={layoutStyles.container}>
-            <CssBaseline />
-            {/* AppBar */}
-            <CustomAppBar isMobile={isMobile} drawerWidth={drawerWidth} />
+  return (
+    <Box sx={layoutStyles.container}>
+      <CssBaseline />
+      {/* AppBar */}
+      <CustomAppBar isMobile={isMobile} drawerWidth={drawerWidth} />
 
-            {/* Drawer */}
-            <CustomDrawer
-                isMobile={isMobile}
-                drawerWidth={drawerWidth}
-            />
+      {/* Drawer */}
+      <CustomDrawer isMobile={isMobile} drawerWidth={drawerWidth} />
 
-            {/* Main Content */}
-            <Toolbar />
-            <Box component="main" sx={layoutStyles.mainContent(drawerWidth)}>
-                <Outlet />
-            </Box>
-        </Box>
-    );
+      {/* Main Content */}
+      <Toolbar />
+      <Box component="main" sx={layoutStyles.mainContent(drawerWidth)}>
+        <Outlet />
+      </Box>
+    </Box>
+  );
 };
 
 export default AppLayout;

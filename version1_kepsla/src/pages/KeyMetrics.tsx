@@ -1,10 +1,10 @@
 // src/Dashboard.tsx
-import React, { useState } from 'react';
-import { Responsive, WidthProvider, Layouts, Layout } from 'react-grid-layout';
-import 'react-grid-layout/css/styles.css';
-import 'react-resizable/css/styles.css';
-import { breakpoints, cols, generateLayouts } from '../config/gridConfig';
-import GridCard from '../components/Cards/GridCard';
+import React, { useState } from "react";
+import { Responsive, WidthProvider, Layouts, Layout } from "react-grid-layout";
+import "react-grid-layout/css/styles.css";
+import "react-resizable/css/styles.css";
+import { breakpoints, cols, generateLayouts } from "../config/gridConfig";
+import GridCard from "../components/Cards/GridCard";
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
@@ -16,11 +16,11 @@ interface CardItem {
 
 // Example card data; add more cards as needed.
 const cardItems: CardItem[] = [
-  { id: 1, title: 'Sales Overview', content: 'Detailed sales figures...' },
-  { id: 2, title: 'User Engagement', content: 'User engagement metrics...' },
-  { id: 3, title: 'Server Status', content: 'Server uptime and load...' },
-  { id: 4, title: 'Sales Overview', content: 'Detailed sales figures...' },
-  { id: 5, title: 'Sales Overview', content: 'Detailed sales figures...' },
+  { id: 1, title: "Sales Overview", content: "Detailed sales figures..." },
+  { id: 2, title: "User Engagement", content: "User engagement metrics..." },
+  { id: 3, title: "Server Status", content: "Server uptime and load..." },
+  { id: 4, title: "Sales Overview", content: "Detailed sales figures..." },
+  { id: 5, title: "Sales Overview", content: "Detailed sales figures..." },
   // Add additional cards for scalability.
 ];
 
@@ -31,31 +31,16 @@ const KeyMetrics: React.FC = () => {
   const [draggingCardId, setDraggingCardId] = useState<number | null>(null);
 
   // onDragStart is fired when a drag begins.
-  const onDragStart = (
-    layout: Layout[],
-    oldItem: Layout,
-    newItem: Layout,
-    placeholder: Layout,
-    event: MouseEvent,
-    element: HTMLElement
-  ): void => {
+  const onDragStart = (_layout: Layout[], oldItem: Layout): void => {
     // Set the dragged card's id.
     setDraggingCardId(+oldItem.i + 1);
   };
 
   // onDragStop is fired when a drag stops.
-  const onDragStop = (
-    layout: Layout[],
-    oldItem: Layout,
-    newItem: Layout,
-    placeholder: Layout,
-    event: MouseEvent,
-    element: HTMLElement
-  ): void => {
+  const onDragStop = (): void => {
     // Clear the dragged card's id.
     setDraggingCardId(null);
   };
-
 
   return (
     <ResponsiveGridLayout
@@ -70,9 +55,15 @@ const KeyMetrics: React.FC = () => {
       isResizable={false}
     >
       {cardItems.map((card, index) => {
-        return <div key={`${index}`}>
-          <GridCard title={card.title} content={card.content} isDragging={draggingCardId == card.id} />
-        </div>
+        return (
+          <div key={`${index}`}>
+            <GridCard
+              title={card.title}
+              content={card.content}
+              isDragging={draggingCardId == card.id}
+            />
+          </div>
+        );
       })}
     </ResponsiveGridLayout>
   );
