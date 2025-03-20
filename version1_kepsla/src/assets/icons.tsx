@@ -10,7 +10,7 @@ import ReviewsSVG from "../assets/icons/reviews.svg?react";
 import SurveyAnalysisSVG from "../assets/icons/survey-analysis.svg?react";
 import GuestJourneySVG from "../assets/icons/guest-journey.svg?react";
 import GuestSurveySVG from "../assets/icons/guest-survey.svg?react";
-import MilestonesSVG from "../assets/icons/Milestones.svg?react";
+import MilestonesSVG from "../assets/icons/milestones.svg";
 import BrandComparisionSVG from "../assets/icons/brand-comparison.svg?react";
 import ComparativeAnalysisSVG from "../assets/icons/comparative-analysis.svg?react";
 import WAQRCodeSVG from "../assets/icons/wa-qr-code.svg?react";
