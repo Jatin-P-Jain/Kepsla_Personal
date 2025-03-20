@@ -3,7 +3,7 @@ import { useTheme, useMediaQuery } from "@mui/material";
 
 const useDrawer = () => {
   const [open, setOpen] = useState(false); // Default to closed on mobile
-  const [drawerWidth, setDrawerWidth] = useState("240px");
+  const [drawerWidth, _setDrawerWidth] = useState("240px");
   const [showToggleIcon, setShowToggleIcon] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
